@@ -1,0 +1,6 @@
+# config/config.yaml
+data:
+  raw_data_path: "data/raw/alex-50hours.csv"
+  processed_data_path: "data/processed/"
+model:
+  save_path: "models/model.pkl"
