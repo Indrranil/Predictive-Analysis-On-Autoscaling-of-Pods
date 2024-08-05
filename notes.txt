@@ -1,17 +1,41 @@
 
 
+PURPOSE: 
+        
+        TRADITIONAL: HPA,VPA,CA
+                    . Scales based on the CPU or mem usage 
+                    . During a flash sale the system might not react after
+                      load increases, potentially leading to temp performamce
+                      degradation
+
+        PREDICTIVE: MODEL with COMPONENET
+                    . Uses historical sales data and extracts factors like
+                      marketing campaign schedules to predict the trffic spike 
+                    . Scales resources in advance of the flash sale, ensuring s
+                      smooth performanec and user experience throught the
+                      event.
+
+
+
+
+
+
+
+Idea -> 1. create a component for the applying the model prediction            that can be achieved through py script (chatgpt) 
+
+
+
+
+
+
+
+
 
     Progess Update -> model -> successfull training 
                     
                         model -> successsfull evluating
                             
                             model -> successfully predicting 
-
-
-
-    Pending tasks -> 1. Create a cluter with a deployment 
-                     2. in `predict_and_update.py` enter the correcet path for the deployment.yaml
-                     3. Test -> check if the script updates the deployment.yaml-> replicas, check if it is set to the predicted {num_replicas}
 
 
 
