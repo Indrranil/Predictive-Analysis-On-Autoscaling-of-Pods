@@ -1,7 +1,15 @@
 
 
+
+*** understand the op from the model first
+
+
+
+
+
+
 PURPOSE: 
-        
+
         TRADITIONAL: HPA,VPA,CA
                     . Scales based on the CPU or mem usage 
                     . During a flash sale the system might not react after
