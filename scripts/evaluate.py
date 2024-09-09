@@ -1,53 +1,38 @@
-# scripts/evaluate.py
-import sys
 import os
-
-# Append the project root directory to sys.path
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-
+import sys
 import joblib
-import yaml
 import pandas as pd
 from sklearn.metrics import mean_squared_error
-from src.data_preprocessing import preprocess_data
-from src.feature_engineering import create_features
 
-def main():
-    # Get the directory of the current script
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    config_path = os.path.join(script_dir, '../config/config.yaml')
+# Add the src directory to the Python path
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'src'))
 
-    with open(config_path, 'r') as f:
-        config = yaml.safe_load(f)
+from data_preprocessing import load_config, load_raw_data, preprocess_data, split_data
 
-    raw_data_path = os.path.join(script_dir, '../', config['data']['raw_data_path'])
-    model_save_path = os.path.join(script_dir, '../', config['model']['save_path'])
+def evaluate_model():
+    """Evaluate the trained model."""
+    # Load configuration file
+    config = load_config('config/config.yaml')
 
     # Load and preprocess data
-    df = pd.read_csv(raw_data_path)
-    df = preprocess_data(df)
-    df = create_features(df)
+    data = load_raw_data(config['data']['processed_data_path'])
+    processed_data = preprocess_data(data)
 
-    # Split data into features and target
-    feature_columns = ['cpu_usage', 'memory_usage', 'cpu_memory_ratio']
-    target_column = 'target_metric'  # Adjust this to match your dataset
+    # Extract features and target variable
+    X = processed_data[['cpu_usage', 'memory_usage', 'cpu_memory_ratio']]
+    y = processed_data['target_metric']
 
-    X = df[feature_columns]
-    y = df[target_column]
+    # Split data into training and testing sets
+    X_train, X_test, y_train, y_test = split_data(X, y)
 
-    # Load model
-    model = joblib.load(model_save_path)
+    # Load the trained model
+    with open('models/model.pkl', 'rb') as f:
+        model = joblib.load(f)
 
-    # Make predictions
-    y_pred = model.predict(X)
+    # Evaluate the model
+    predictions = model.predict(X_test)
+    mse = mean_squared_error(y_test, predictions)
+    print(f"Mean Squared Error: {mse}")
 
-    # Calculate Mean Squared Error
-    mse = mean_squared_error(y, y_pred)
-    print(f'Mean Squared Error: {mse}')
-
-    # Print predictions
-    print("Predictions:")
-    print(y_pred)
-
-if __name__ == '__main__':
-    main()
+if __name__ == "__main__":
+    evaluate_model()

@@ -1,6 +1,12 @@
-# config/config.yaml
 data:
   raw_data_path: "data/raw/alex-50hours.csv"
-  processed_data_path: "data/processed/"
+  processed_data_path: "data/processed/processed_metrics.csv"
+
 model:
-  save_path: "models/model.pkl"
+  model_path: "models/model.pkl"
+
+training:
+  test_size: 0.2
+  random_state: 42
+  n_estimators: 100
+  max_depth: 5

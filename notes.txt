@@ -1,5 +1,25 @@
 
+1. Data -> csv [time.date,cpuUsage,memUage,pod_name,cmRatio]
 
+2. Model -> LinearRegression
+
+3. Result -> Prediction -> correct 
+
+4. RealTIme use -> pending 
+
+:
+
+
+
+
+
+
+
+
+
+
+
+* fix git coflict
 
 *** understand the op from the model first
 
@@ -29,6 +49,9 @@ PURPOSE:
 
 
 
+
+
+i
 Idea -> 1. create a component for the applying the model prediction            that can be achieved through py script (chatgpt) 
 
 

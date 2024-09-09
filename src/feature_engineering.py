@@ -1,4 +1,4 @@
-# src/feature_engineering.py
-def create_features(df):
-    # Assuming features are already created in the synthetic data generation
+# Placeholder for feature engineering code
+def engineer_features(df):
+    # Add any feature engineering steps here
     return df

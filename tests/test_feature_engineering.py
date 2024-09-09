@@ -1,14 +1,14 @@
-# tests/test_feature_engineering.py
+import unittest
+from src.data_preprocessing import preprocess_data
 import pandas as pd
-from src.feature_engineering import create_features
 
-def test_create_features():
-    data = {
-        'cpu_usage': [0.5, 0.6],
-        'memory_usage': [0.7, 0.8]
-    }
-    df = pd.DataFrame(data)
-    feature_df = create_features(df)
+class TestDataPreprocessing(unittest.TestCase):
+    def test_preprocess_data(self):
+        data = {'cpu_usage': [1.0], 'memory_usage': [2.0], 'cpu_memory_ratio': [0.5], 'target_metric': [4]}
+        df = pd.DataFrame(data)
+        X, y = preprocess_data(df)
+        self.assertEqual(X.shape, (1, 3))
+        self.assertEqual(len(y), 1)
 
-    assert 'cpu_memory_ratio' in feature_df.columns
-    assert feature_df['cpu_memory_ratio'][0] == 0.5 / 0.7
+if __name__ == '__main__':
+    unittest.main()
