@@ -1,24 +1,20 @@
-# Kubernetes Autoscaler with Predictive Analysis
+# 🚀 Predictive Analysis on Autoscaling of Pods  
 
-This project implements a custom autoscaler for Kubernetes that uses machine learning to predict the number of replicas needed for pods based on real-time CPU and memory usage metrics. The autoscaler aims to enhance the standard Horizontal Pod Autoscaler (HPA) by making more informed decisions using predictive analysis.
+## Introduction  
+Kubernetes Horizontal Pod Autoscaler (HPA) is **reactive**, scaling only when resource usage crosses predefined thresholds. This approach leads to **delayed scaling decisions** and **resource inefficiencies**.  
 
-## Features
+This project introduces a **predictive autoscaling model** that leverages **machine learning on historical resource usage data** to proactively determine the optimal number of replicas for a deployment. By **forecasting future CPU and memory consumption**, this model ensures efficient autoscaling while reducing the risk of over-provisioning and under-provisioning.  
 
-- **Predictive Autoscaling**: Uses machine learning (currently linear regression) to predict pod scaling based on historical data.
-- **Real-time Data Collection**: Continuously collects CPU and memory usage from the Kubernetes cluster and feeds it into the prediction model.
-- **Customizable Metrics**: Allows tracking of various Kubernetes metrics such as `cpu_usage`, `memory_usage`, and `cpu_memory_ratio`.
-- **Tested and Mocked Components**: Includes unit tests for core components using `pytest` and mocks for Kubernetes API interactions.
+## Key Features  
+ **Predictive Scaling** – Anticipates resource demands instead of reacting late  
+ **Machine Learning Model** – Uses **Linear Regression** to estimate the required number of replicas  
+ **Real-time Kubernetes Integration** – Fetches live metrics and adjusts scaling dynamically  
+ **Improved Resource Utilization** – Reduces unnecessary replica allocation and cost overhead  
+ **Minimal Latency** – Quick decision-making for optimal autoscaling  
 
-## Directory Structure
+---
 
-```bash
-.
-├── config                   # Configuration files
-├── data                     # Raw and processed data
-├── models                   # Trained machine learning models
-├── scripts                  # Core Python scripts for autoscaler logic
-├── src                      # Source code for data preprocessing and feature engineering
-├── tests                    # Unit tests for various components
-├── notebooks                # Jupyter notebooks (if any) for exploratory data analysis
-└── requirements.txt          # Python dependencies
+## Flow
+Below is the flow diagram illustrating how **metrics are collected, processed, and used for predictive scaling**:  
 
+![Flow](/flow.png)  
