@@ -12,6 +12,15 @@ This project introduces a **predictive autoscaling model** that leverages **mach
  **Improved Resource Utilization** – Reduces unnecessary replica allocation and cost overhead  
  **Minimal Latency** – Quick decision-making for optimal autoscaling  
 
+ ## 📄 Research Paper (Unpublished)
+
+A detailed research paper accompanying this project explores the design, implementation, and evaluation of the predictive autoscaling model. Although the paper is **not formally published yet**, it is available for review:
+
+👉 [Read the Research Paper on Google Docs](https://docs.google.com/document/d/1OGQ3mr1T1aBqd35AwfobJoTvlp1a5l50RgIrw4dkW-g/edit?usp=sharing)
+
+Alternatively, you can [download the PDF version](docs/Predictive Analysis on Autoscaling of Pods .pdf) from this repository.
+
+
 ---
 
 ## Flow
