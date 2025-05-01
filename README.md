@@ -18,7 +18,7 @@ A detailed research paper accompanying this project explores the design, impleme
 
 👉 [Read the Research Paper on Google Docs](https://docs.google.com/document/d/1OGQ3mr1T1aBqd35AwfobJoTvlp1a5l50RgIrw4dkW-g/edit?usp=sharing)
 
-Alternatively, you can [download the PDF version](docs/Predictive Analysis on Autoscaling of Pods .pdf) from this repository.
+Alternatively, you can [download the PDF version](docs/Predictive_Analysis_on_Autoscaling_of_Pods.pdf) from this repository.
 
 
 ---
