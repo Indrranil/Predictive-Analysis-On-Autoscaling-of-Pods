@@ -1,4 +1,4 @@
-# 🚀 Predictive Analysis on Autoscaling of Pods  
+#  Predictive Analysis on Autoscaling of Pods  
 
 ## Introduction  
 Kubernetes Horizontal Pod Autoscaler (HPA) is **reactive**, scaling only when resource usage crosses predefined thresholds. This approach leads to **delayed scaling decisions** and **resource inefficiencies**.  
